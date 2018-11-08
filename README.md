@@ -10,6 +10,7 @@ A Quick Start Example to run Django-MongoDB Application in Docker.
 This module requires the following modules/libraries:
 
 * [Docker](https://www.docker.com/get-started)
+* Any version of Linux or Unix OS (Recommended and Optional)
 
 ## Installation
 
@@ -30,9 +31,14 @@ Directory named `data_db` will serve as a MongoDB data directory on the host sys
 ## Troubleshooting/Issues
 
 Known Issues:
-#### :warning: Warning Running on Windows OS
+#### :warning: Warning running on Windows OS
 * The default Docker setup on Windows uses a VirtualBox VM to host the Docker daemon. Unfortunately, the mechanism VirtualBox uses to share folders between the host system and the Docker container is not compatible with the memory mapped files used by MongoDB. This means that it is not possible to run a MongoDB container with the data directory mapped to the host on Windows OS.
-* A quick work around comment volume mapping in `docker-compose.yml` if you are runnning in Windows OS.
+* As a quick work around to run this example on windows machine please comment few lines of volume mapping in `docker-compose.yml`. 
+
+## Credits
+
+This example uses a popular open source project called [Djongo - A Django and MongoDB database connector](https://github.com/nesdis/djongo). Thanks to the creator for this wonderful contribution.
+
 
 ## Support
 
