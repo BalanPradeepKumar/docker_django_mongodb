@@ -24,9 +24,18 @@ Install using the following the command,
 
 When a container is started for the first time, it will execute files with extensions `.sh`, and `.js` that are found in `init_db`. `.js` files will be executed by mongo using the database specified by the MONGO_INITDB_DATABASE variable in `docker-compose.yml`, if it is present, or `test` otherwise. You may also switch databases within the .js script.
 
-### Store MongoDB data on Host System.
+### Store MongoDB data on Host System
 
 Directory named `data_db` will serve as a MongoDB data directory on the host system (outside the container). It is easy for tools and applications on the host system to access the MongoDB files from this directory. The `data_db` directory from host system is mounted to `/data/db` inside the container, where MongoDB by default will write its data files.
+
+### Perform database migration at the beginning
+
+Using docker hierarchy in `docker-compose.yml`, the services `make-migration` and `migration` runs after setting up the database but before the start of the main `web` service. This docker configuration helps us to automatically run the django migration commands on the application once the database has been setup.
+
+### Web-based MongoDB admin interface
+
+This example also creates a web-based user inteface for MongoDB called [mongo-express](https://github.com/mongo-express/mongo-express) through port 8081.
+
 
 ## Troubleshooting/Issues
 
