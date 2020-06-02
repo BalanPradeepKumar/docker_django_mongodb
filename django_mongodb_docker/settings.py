@@ -78,14 +78,16 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': True,
+        'ENFORCE_SCHEMA': False,
         'NAME': 'django_mongodb_docker',
-        'HOST': 'mongodb',
-        'PORT': 27017,
-        'USER': 'root',
-        'PASSWORD': 'mongoadmin',
-        'AUTH_SOURCE': 'admin',
-        'AUTH_MECHANISM': 'SCRAM-SHA-1',
+        'CLIENT':{
+                'host': 'mongodb',
+                'port': 27017,
+                'username': 'root',
+                'password': 'mongoadmin',
+                'authSource': 'admin',
+                'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
 

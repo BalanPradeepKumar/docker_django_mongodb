@@ -1,2 +1,2 @@
 django==2.2.12
-djongo==1.2.38
+djongo==1.3.2
