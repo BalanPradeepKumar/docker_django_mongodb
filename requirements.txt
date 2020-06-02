@@ -1,2 +1,2 @@
-django>=2.1.2
-djongo==1.2.30
+django==2.2.12
+djongo==1.2.38
