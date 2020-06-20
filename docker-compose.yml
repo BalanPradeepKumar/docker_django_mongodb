@@ -6,7 +6,7 @@ volumes:
 
 services:
   mongodb:
-    image: mongo
+    image: mongo:3.6
     restart: always
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d
@@ -26,10 +26,14 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: mongoadmin
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    depends_on: 
+      - mongodb
 
   web:
     image: app
     restart: always
+    container_name: web
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/django_mongodb_docker

@@ -1,7 +1,8 @@
-FROM python:3
+FROM python:3.6
 
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /django_mongodb_docker
 WORKDIR /django_mongodb_docker
-COPY . /django_mongodb_docker/
+COPY ./requirements.txt .
 RUN pip install -r requirements.txt
+COPY . .
